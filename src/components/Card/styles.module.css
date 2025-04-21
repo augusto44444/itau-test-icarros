@@ -1,0 +1,91 @@
+.cardContainer {
+  display: flex;
+  flex: 1;
+  min-width: 20vw;
+  max-width: 20vw;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: var(--color-card-bg);
+  border: solid 1px var(--color-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--card-shadow);
+}
+
+@media (max-width: 768px) {
+  .cardContainer{
+    min-width: 100%;
+  }
+}
+
+
+.infoContainer {
+  padding: var(--spacing-md) var(--spacing-sm);
+}
+
+.firstInfoContainer {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px var(--color-border);
+  padding: var(--spacing-sm) 0;
+}
+
+.firstInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+}
+
+.title {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.secondary {
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.icon {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10%;
+  align-items: center;
+  flex: 2;
+}
+
+.icon a {
+  color: var(--color-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.priceContainer {
+  width: 100%;
+  padding: var(--spacing-md) 0;
+}
+
+.lastItensContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+.lastInfoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vendedor {
+  font-size: var(--font-size-md);
+  color: var(--color-button);
+  word-wrap: break-word;
+  text-decoration: underline;
+}
+
+.liked{
+  color: red !important ;
+  font-weight: bold !important;
+}

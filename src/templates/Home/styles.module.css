@@ -1,0 +1,17 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-background);
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  background-color: red;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background-color: var(--color-background);
+  padding: var(--spacing-xl);
+  justify-content: center;
+}

@@ -1,0 +1,42 @@
+.CarrousselContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.CarrousselContainer img {
+  height: 22.5vh;
+  object-fit: cover;
+  border-top-left-radius: var(--border-radius-md);
+  border-top-right-radius: var(--border-radius-md);
+}
+
+.CarrousselMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  position: absolute;
+  bottom: 2%;
+  left: 25%;
+}
+.CarrousselMenu a {
+  background-color: var(--color-button-blue);
+  height: var(--spacing-md);
+  width: var(--spacing-md);
+  cursor: pointer;
+  font-size: var(--font-size-md);
+  border-radius: 100%;
+  user-select: none;
+  transition: all .2s ease-in-out;
+}
+
+.CarrousselMenu a:hover{
+  transform: scale(1.2);
+}
+
+.selected{
+  background-color: var(--color-primary) !important;
+  transform: scale(1.2);
+}

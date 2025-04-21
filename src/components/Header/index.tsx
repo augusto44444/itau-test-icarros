@@ -1,0 +1,40 @@
+import { useRef } from 'react';
+import { CarsActionTypes } from '../../contexts/Cars/CarsActions';
+import { useCarContext } from '../../contexts/Cars/useCarsContext';
+import styles from './styles.module.css';
+import { SearchIcon } from 'lucide-react';
+
+export function Header() {
+  const { dispatch } = useCarContext();
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!inputRef.current) return;
+
+    dispatch({
+      type: CarsActionTypes.SEARCH_CAR,
+      payload: inputRef.current!.value.trim(),
+    });
+  }
+
+  return (
+    <header className={styles.container}>
+      <div className={styles.logoContainer}>
+        <span className={styles.logo}>Icarros</span>
+      </div>
+      <div className={styles.searchContainer}>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.searchBox}>
+            <SearchIcon  className={styles.searchIcon}/>
+            <input
+              type='text'
+              placeholder='Pesquisar por marca'
+              ref={inputRef}
+            />
+          </div>
+        </form>
+      </div>
+    </header>
+  );
+}
