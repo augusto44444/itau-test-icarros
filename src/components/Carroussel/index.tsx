@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Car } from '../../Models/car.model';
+import { CarModel } from '../../Models/car.model';
 import styles from './styles.module.css';
 
 type CarrousselType = {
-  full_name: Car['full_name'];
-  images: Car['images'];
+  full_name: CarModel['full_name'];
+  images: CarModel['images'];
 };
 
 export function Carrouseel({ full_name, images }: CarrousselType) {
@@ -36,11 +36,13 @@ export function Carrouseel({ full_name, images }: CarrousselType) {
           Array.from(Array(images.length).keys()).map(i => {
             return (
               <a
+                role='link'
                 className={`${styles.carrousselItemMenu} ${
                   image == images[i] ? styles.selected : ''
                 }`}
                 key={i}
                 onClick={e => handleChangeImage(e, i)}
+                aria-label={`Imagem ${i + 1}`}
               ></a>
             );
           })}

@@ -24,7 +24,7 @@ export function Header() {
         <span className={styles.logo}>Icarros</span>
       </div>
       <div className={styles.searchContainer}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} aria-label="Formulário de Pesquisa">
           <div className={styles.searchBox}>
             <SearchIcon  className={styles.searchIcon}/>
             <input
