@@ -19,9 +19,9 @@ export function Header() {
   }
 
   return (
-    <header className={styles.container}>
+    <header className={styles.container} aria-label='cabeçalho'>
       <div className={styles.logoContainer}>
-        <span className={styles.logo}>Icarros</span>
+        <h1 className={styles.logo}  aria-label='Logo icarros'>Icarros</h1>
       </div>
       <div className={styles.searchContainer}>
         <form onSubmit={handleSubmit} aria-label="Formulário de Pesquisa">

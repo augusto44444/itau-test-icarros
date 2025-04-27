@@ -16,7 +16,7 @@ export function Modal() {
 
   if (car) {
     return (
-      <div className={styles.modalOverlay}>
+      <div className={styles.modalOverlay} data-testid="modal">
         <div className={styles.modalContainer}>
           <button className={styles.modalClose} onClick={handleCloseModal}>
             <XIcon />
