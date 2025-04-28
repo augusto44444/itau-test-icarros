@@ -1,4 +1,4 @@
-# Vehicle Listing App
+# App de listagem de veiculos
 
 Este projeto foi desenvolvido como parte de um case prático. A ideia era construir uma página React exibindo uma lista de veículos, com funções de busca, favoritos e modal de contato.
 
@@ -17,9 +17,22 @@ Este app permite:
 
 Os dados são carregados a partir de um arquivo JSON local, simulando uma resposta de API.
 
+## 🎨 Estilização com CSS Modules
+
+Optei por utilizar **CSS Modules** para a estilização dos componentes.  
+No ambiente real de desenvolvimento do Itaú, onde atuo, já existe um **Design System** consolidado, que fornece a base de **componentes estilizados** prontos para uso.
+
+Por isso, em projetos internos, **não é necessário criar estilos do zero** — normalmente apenas aplicamos **retoques específicos** para ajustes finos de layout ou comportamento visual.  
+Pensando nisso, o uso de **CSS Modules** permite:
+- Manter o **escopo isolado** dos estilos, evitando conflitos de classes globais.
+- Aplicar **estilizações pontuais** com organização e clareza.
+- Facilitar futuras **adaptações** ou integrações com sistemas de Design Systems corporativos.
+
+Essa abordagem torna o código mais modular, seguro e preparado para realidades de ambientes corporativos grandes.
+
 ## 📂 Estrutura de Pastas
 Organizei o projeto utilizando o padrão **por features**. Segue a estrutura:
-
+```
 src/
 │
 ├── assets/
@@ -45,7 +58,7 @@ src/
 |
 └── vite-env.d.ts
     └── (declarações de tipos para o Vite e configuração do ambiente TypeScript)
-
+```
 Cada funcionalidade possui sua própria pasta contendo componentes, testes e arquivos relacionados, o que melhora a manutenção e escalabilidade do projeto.
 
 ## 🖼️ Tela Principal
