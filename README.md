@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# Vehicle Listing App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte de um case prático. A ideia era construir uma página React exibindo uma lista de veículos, com funções de busca, favoritos e modal de contato.
 
-Currently, two official plugins are available:
+## 👩‍💻 Tecnologias Utilizadas
+- React 19 (com TypeScript)
+- Vite
+- React Testing Library (RTL) + Jest para testes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Sobre o Projeto
 
-## Expanding the ESLint configuration
+Este app permite:
+- Visualizar uma lista de veículos.
+- Buscar por marca através da barra de pesquisa.
+- Favoritar veículos (o ícone fica vermelho quando selecionado).
+- Abrir um modal com as informações de contato do vendedor (nome, telefone e email).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Os dados são carregados a partir de um arquivo JSON local, simulando uma resposta de API.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 📂 Estrutura de Pastas
+Organizei o projeto utilizando o padrão **por features**. Segue a estrutura:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+src/
+│
+├── assets/
+│   └── (arquivos estáticos como imagens, ícones etc.)
+│
+├── components/
+│   └── (componentes reutilizáveis da aplicação)
+│
+├── contexts/
+│   └── (contextos globais de estado, utilizando Context API)
+│
+├── Models/
+│   └── (tipagens e definições de modelos de dados, usando TypeScript)
+│
+├── styles/
+│   └── (estilos globais da aplicação, como temas, variáveis e resets)
+│
+├── templates/
+│   └── (estruturas base de páginas ou componentes de maior porte)
+│
+├── main.tsx
+│   └── (arquivo de entrada principal da aplicação)
+|
+└── vite-env.d.ts
+    └── (declarações de tipos para o Vite e configuração do ambiente TypeScript)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Cada funcionalidade possui sua própria pasta contendo componentes, testes e arquivos relacionados, o que melhora a manutenção e escalabilidade do projeto.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🖼️ Tela Principal
+
+A interface principal ficou assim:
+
+![Tela Principal](./src/assets/images/Home.png)
+
+## 📢 Modal de Contato
+
+O modal exibido ao clicar no botão "Contato" apresenta as informações do vendedor de forma clara e responsiva:
+
+![Modal de Contato](./src/assets/images/Modal.png)
+
+## 💪 Boas Práticas Adotadas
+- Componentização clara.
+- Padronização de código com ESLint e Prettier.
+- Testes unitários para componentes chave usando RTL e Jest.
+- Separacão de lógica de UI e lógica de negócio.
+- Tratamento de estados vazios na busca.
+
+## 🔍 Possíveis Melhorias Futuras
+- Integração com uma API real.
+- Paginação da lista de veículos.
+- Filtro avançado por preço, modelo, etc.
+- Melhorias no design responsivo.
+
+## 📅 Considerações
+Esse projeto foi uma ótima oportunidade para aplicar boas práticas de organização de código e arquitetura moderna em React.
+
+Link para o código completo: **https://github.com/augusto44444/itau-test-icarros**
+
+---
+
+Obrigado pela avaliação! 🚀
+
