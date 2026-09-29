@@ -1,5 +1,5 @@
 import { CarsReducer } from './CarsReducer';
-import { CarsActionTypes } from './CarsActions';
+import { CarsActionModel, CarsActionTypes } from './CarsActions';
 import { CarsContextModel } from '../../Models/carContext.model';
 import { cars_mock } from '../../assets/mock/cars.mock';
 describe('CarsReducer', () => {
@@ -10,7 +10,7 @@ describe('CarsReducer', () => {
 
   it('should handle SET_CAR', () => {
     const payload = cars_mock[0];
-    const action = { type: CarsActionTypes.SET_CAR, payload };
+    const action = { type: CarsActionTypes.SET_CAR, payload } satisfies CarsActionModel;
     const newState = CarsReducer(initialState, action);
     expect(newState.car).toEqual(payload);
   });
@@ -20,8 +20,8 @@ describe('CarsReducer', () => {
     const initialLiked = cars_mock[0].liked;
     const action = {
       type: CarsActionTypes.INTERACT_CAR,
-      payload: { id: carId },
-    };
+      payload: cars_mock[0],
+    } satisfies CarsActionModel;
     const newState = CarsReducer(initialState, action);
     const interactedCar = newState.cars.find(car => car.id === carId);
     expect(interactedCar?.liked).toEqual(!initialLiked);
@@ -29,7 +29,7 @@ describe('CarsReducer', () => {
 
   it('should handle SEARCH_CAR', () => {
     const payload = 'Honda';
-    const action = { type: CarsActionTypes.SEARCH_CAR, payload };
+    const action = { type: CarsActionTypes.SEARCH_CAR, payload } satisfies CarsActionModel;
     const newState = CarsReducer(initialState, action);
     const newCars = cars_mock.filter(
       car => car.brand.toLowerCase().indexOf(action.payload.toLowerCase()) > -1,
@@ -39,14 +39,14 @@ describe('CarsReducer', () => {
 
   it('should return the same state if the search returns no results', () => {
     const payload = 'NonExistingBrand';
-    const action = { type: CarsActionTypes.SEARCH_CAR, payload };
+    const action = { type: CarsActionTypes.SEARCH_CAR, payload } satisfies CarsActionModel;
     const newState = CarsReducer(initialState, action);
     expect(newState.cars).toEqual(initialState.cars);
   });
 
   it('should return the current state for unknown action types', () => {
     const action = { type: 'UNKNOWN_ACTION', payload: {} };
-    const newState = CarsReducer(initialState, action);
+    const newState = CarsReducer(initialState, action as unknown as CarsActionModel);
     expect(newState).toEqual(initialState);
   });
 });
